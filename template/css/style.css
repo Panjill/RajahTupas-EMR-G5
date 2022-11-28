@@ -9188,7 +9188,7 @@ progress {
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
-  border: 1px solid #dee2e6;
+  border: 1px solid #0000;
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
@@ -10612,7 +10612,7 @@ progress {
 }
 
 .form-control::placeholder {
-  color: #c9c8c8;
+  color: #679686;
   opacity: 1;
 }
 
@@ -11417,14 +11417,14 @@ fieldset:disabled .btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #6640b2;
-  border-color: #6640b2;
+  background-color: #198754;
+  border-color: #198754;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #573697;
-  border-color: #52338e;
+  background-color: #0ec487;
+  border-color: #96caa7;
 }
 
 .btn-check:focus + .btn-primary, .btn-primary:focus {
@@ -16214,6 +16214,11 @@ fieldset:disabled .btn {
 .py-5 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
+}
+
+.top-right {
+  padding-top: 1rem !important;
+  padding-right: 3rem !important;
 }
 
 .pt-0 {
@@ -21066,7 +21071,7 @@ code {
 .form-check-danger.form-check label input[type="checkbox"]:checked + .input-helper:before,
 .form-check-danger.form-check label input[type="radio"]:checked + .input-helper:before {
   background: #f83e37;
-}
+}input
 
 .form-check-light.form-check label input[type="checkbox"] + .input-helper:before,
 .form-check-light.form-check label input[type="radio"] + .input-helper:before {
@@ -21090,7 +21095,58 @@ code {
 
 /* Forms */
 .form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group-1 {
   margin-bottom: 1.5rem;
+  padding-right: 0.50rem;
+  padding-left: 0.25rem;
+}
+
+.form-group-2 {
+  margin-bottom: 0.5rem;
+  float:left;
+  display:inline-block;
+  width: 33%;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.form-group-3 {
+  margin-bottom: 0.5rem;
+  float:left;
+  display:inline-block;
+  width: 50%; 
+  padding-right: 0.50rem;
+  padding-left: 0.25rem;
+}
+
+.form-group-4 {
+  margin-bottom: 0.5rem;
+  float:left;
+  display:inline-block;
+  width: 25%;
+  padding-right: 0.50rem;
+  padding-left: 0.50rem;
+}
+
+.form-group-5 {
+  margin-bottom: 1.5rem;
+  float:left;
+  display:inline-block;
+  width: 20%;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.form-group-6 {
+  margin-bottom: 0.5rem;
+  float:left;
+  display:inline-block;
+  width: 75%; 
+  padding-right: 0.50rem;
+  padding-left: 0.25rem;
 }
 
 .input-group-append,
@@ -21108,7 +21164,7 @@ code {
 }
 
 .form-control {
-  border: 1px solid #f3f3f3;
+  border: 1px solid #005334;
   font-weight: 400;
   font-size: 0.875rem;
 }
@@ -21530,10 +21586,12 @@ dl li {
 
 .auth .auth-form-light {
   background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px -6px black;
 }
 
 .auth .auth-form-light select {
-  color: #c9c8c8;
+  color: #679686;
 }
 
 .auth .auth-form-light .input-group .form-control:focus, .auth .auth-form-light .input-group .form-control:active {
@@ -21576,6 +21634,21 @@ dl li {
 
 .auth .brand-logo img {
   width: 150px;
+}
+
+.auth .prof-pic {
+  text-align: center;
+  width: 80px;
+  float: right;
+  font-size: 10px;
+  text-decoration: none;
+  color: #00422a;
+}
+
+.auth .prof-pic img {
+  width: 80px;
+  float: right;
+  margin-right: 3px;
 }
 
 .auth form .form-group {
@@ -21652,8 +21725,9 @@ dl li {
   padding-top: 0;
 }
 
+/* Register-User background */
 .content-wrapper {
-  background: #f6f7fb;
+  background:  #e1f0d2;
   padding: 1.937rem 1.437rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -21670,7 +21744,7 @@ dl li {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 65px);
-  background: #223e9c;
+  background: #023020;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   padding: 0;
@@ -21790,7 +21864,7 @@ dl li {
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
-  background: #183188;
+  background: #336600;
   position: relative;
 }
 
@@ -21813,7 +21887,7 @@ dl li {
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
-  background: #183188;
+  background: #336600;
   color: #ffffff;
 }
 

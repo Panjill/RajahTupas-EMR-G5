@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Spica Admin</title>
+  <title>Rajah Tupas EMR</title>
   <!-- base:css -->
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -48,8 +48,20 @@
           <a class="nav-link" href="index.html">
             <i class="mdi mdi-view-quilt menu-icon"></i>
             <span class="menu-title">Dashboard</span>
-            <div class="badge badge-info badge-pill">2</div>
           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+            <span class="menu-title">Medical Records</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/register-patient.html">New Patient</a></li>
+              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Search Patient</a></li>
+            </ul>
+          </div>
         </li>
         <li class="nav-item sidebar-category">
           <p>Components</p>
@@ -134,6 +146,7 @@
       <!-- partial:./partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 px-0 py-0 py-lg-4 d-flex flex-row">
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <!-- Navbar Icons : Logo -->
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
           </button>
@@ -141,17 +154,26 @@
             <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo"/></a>
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
           </div>
-          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, Brandon Haynes</h4>
+          <!-- Navbar Icons : Date -->
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item">
-              <h4 class="mb-0 font-weight-bold d-none d-xl-block">Mar 12, 2019 - Apr 10, 2019</h4>
+              <h4 class="mb-0 font-weight-bold d-none d-xl-block"><span id='date-only'></span></h4>
             </li>
+            <!-- Navbar Icons : Calendar -->
             <li class="nav-item dropdown me-1">
               <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
                 <i class="mdi mdi-calendar mx-0"></i>
-                <span class="count bg-info">2</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              </div>
+            </li>
+            <!-- Navbar Icons : Messages -->
+            <li class="nav-item dropdown me-2">
+              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+                <i class="mdi mdi-email-open mx-0"></i>
+                <span class="count bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                 <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
@@ -191,55 +213,8 @@
                 </a>
               </div>
             </li>
-            <li class="nav-item dropdown me-2">
-              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                <i class="mdi mdi-email-open mx-0"></i>
-                <span class="count bg-danger">1</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-information mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      Just now
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Settings</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      Private message
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-account-box mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
           </ul>
+          <!-- Search Bar -->
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
@@ -702,5 +677,4 @@
   <script src="js/dashboard.js"></script>
   <!-- End custom js for this page-->
 </body>
-
 </html>
