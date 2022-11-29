@@ -10579,7 +10579,7 @@ progress {
   color: #212529;
   background-color: color(white);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  borde86b7fer: 1px solid #ced4da;
   appearance: none;
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -11429,23 +11429,23 @@ fieldset:disabled .btn {
 
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
-  background-color: #573697;
-  border-color: #52338e;
-  box-shadow: 0 0 0 0.25rem rgba(125, 93, 190, 0.5);
+  background-color: #CCFF66 ;
+  border-color:  #CCFF66 ;
+  box-shadow: 0 0 0 0.25rem rgba(237, 250, 125, 0.877);
 }
 
 .btn-check:checked + .btn-primary,
 .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #52338e;
-  border-color: #4d3086;
+  background-color:  #CCFF66 ;
+  border-color:  #CCFF66 ;
 }
 
 .btn-check:checked + .btn-primary:focus,
 .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(125, 93, 190, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(153, 255, 51, 0.5);
 }
 
 .btn-primary:disabled, .btn-primary.disabled {
@@ -20487,8 +20487,8 @@ code {
 .btn-inverse-primary.active, .btn-inverse-primary:active,
 .show > .btn-inverse-primary.dropdown-toggle {
   color: #ffffff;
-  background-color: #6640b2;
-  border-color: #6640b2;
+  background-color: #336600;
+  border-color: #336600;
 }
 
 .btn-primary, .btn-primary:hover {
@@ -21149,6 +21149,7 @@ code {
   padding-left: 0.25rem;
 }
 
+/**/ register/login
 .input-group-append,
 .input-group-prepend {
   color: #c9c8c8;
@@ -21158,7 +21159,7 @@ code {
 
 .input-group-append .input-group-text,
 .input-group-prepend .input-group-text {
-  border-color: #f3f3f3;
+  border-color: #cfecb3;
   padding: 0.875rem 0.75rem;
   color: #c9c8c8;
 }
@@ -21564,12 +21565,12 @@ dl li {
 /* === Landing screens === */
 /* Auth */
 .auth .login-half-bg {
-  background: url("../images/auth/login-bg.jpg");
+  background: url("../images/auth/green-gradient.png");
   background-size: cover;
 }
 
 .auth .register-half-bg {
-  background: url("../images/auth/register-bg.jpg");
+  background: url("../images/auth/green-gradient.png");
   background-size: cover;
 }
 
@@ -21923,11 +21924,11 @@ dl li {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: #93a8ff;
+  color: #FFFF99 ;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: #93a8ff;
+  color: #FFFF99 ;
   background: transparent;
 }
 
@@ -21960,7 +21961,7 @@ dl li {
   -webkit-transition: background 0.25s ease;
   -moz-transition: background 0.25s ease;
   -ms-transition: background 0.25s ease;
-  background: url(../images/other/navbar-cover.jpg) center center no-repeat;
+  background: url(../images/other/navbar-cover-blk.png) center center no-repeat;
   background-size: cover;
   height: 262px;
   width: auto;

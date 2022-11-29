@@ -21,29 +21,11 @@
   <div class="container-scroller d-flex">
     <div class="row p-0 m-0 proBanner" id="proBanner">
       <div class="col-md-12 p-0 m-0">
-        <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-          <div class="ps-lg-1">
-            <div class="d-flex align-items-center justify-content-between">
-              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
-              <a href="https://www.bootstrapdash.com/product/spica-admin/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
-            </div>
-          </div>
-          <div class="d-flex align-items-center justify-content-between">
-            <a href="https://www.bootstrapdash.com/product/spica-admin/"><i class="mdi mdi-home me-3 text-white"></i></a>
-            <button id="bannerClose" class="btn border-0 p-0">
-              <i class="mdi mdi-close text-white mr-0"></i>
-            </button>
-          </div>
-        </div>
       </div>
     </div>
     <!-- partial:./partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
-        <li class="nav-item sidebar-category">
-          <p>Navigation</p>
-          <span></span>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="index.html">
             <i class="mdi mdi-view-quilt menu-icon"></i>
@@ -59,59 +41,14 @@
           <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="pages/ui-features/register-patient.html">New Patient</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Search Patient</a></li>
+              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/search-patient.html">Search Patient</a></li>
             </ul>
           </div>
-        </li>
-        <li class="nav-item sidebar-category">
-          <p>Components</p>
-          <span></span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <i class="mdi mdi-palette menu-icon"></i>
-            <span class="menu-title">UI Elements</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/forms/basic_elements.html">
-            <i class="mdi mdi-view-headline menu-icon"></i>
-            <span class="menu-title">Form elements</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/charts/chartjs.html">
-            <i class="mdi mdi-chart-pie menu-icon"></i>
-            <span class="menu-title">Charts</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/tables/basic-table.html">
-            <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Tables</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/icons/mdi.html">
-            <i class="mdi mdi-emoticon menu-icon"></i>
-            <span class="menu-title">Icons</span>
-          </a>
-        </li>
-        <li class="nav-item sidebar-category">
-          <p>Pages</p>
-          <span></span>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <i class="mdi mdi-account menu-icon"></i>
-            <span class="menu-title">User Pages</span>
+            <span class="menu-title">Profile</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="auth">
@@ -124,19 +61,21 @@
             </ul>
           </div>
         </li>
-        <li class="nav-item sidebar-category">
-          <p>Apps</p>
-          <span></span>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="docs/documentation.html">
-            <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-            <span class="menu-title">Documentation</span>
+            <i class="mdi mdi-settings menu-icon"></i>
+            <span class="menu-title">Settings</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://www.bootstrapdash.com/product/spica-admin/">
-            <button class="btn bg-danger btn-sm menu-title">Upgrade to pro</button>
+          <a class="nav-link" href="pages/samples/lock-screen.html">
+            <i class="mdi mdi-lock menu-icon"></i>
+            <span class="menu-title">Lockscreen</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pages/samples/login-2.html">
+            <button class="btn bg-danger btn-sm menu-title">Logout</button>
           </a>
         </li>
       </ul>
@@ -220,46 +159,6 @@
           </button>
         </div>
         <div class="navbar-menu-wrapper navbar-search-wrapper d-none d-lg-flex align-items-center">
-          <ul class="navbar-nav mr-lg-2">
-            <li class="nav-item nav-search d-none d-lg-block">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search Here..." aria-label="search" aria-describedby="search">
-              </div>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                <img src="images/faces/face5.jpg" alt="profile"/>
-                <span class="nav-profile-name">Eleanor Richardson</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
-                  <i class="mdi mdi-settings text-primary"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item">
-                  <i class="mdi mdi-logout text-primary"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
-                <i class="mdi mdi-plus-circle-outline"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
-                <i class="mdi mdi-web"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
-                <i class="mdi mdi-clock-outline"></i>
-              </a>
-            </li>
-          </ul>
         </div>
       </nav>
       <!-- partial -->

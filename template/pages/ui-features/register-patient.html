@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <script src="../../js/country-states.js"></script>
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
@@ -28,7 +29,11 @@
                 <!-- Image and Photo -->
               <div class="brand-logo">
                 <img src="../../images/logo-dark.svg" alt="logo">
-                <a class="prof-pic" href="index.html"><img src="../../images/auth/prof-pic-placeholder.svg" alt="logo"/><p>Insert Photo</p></a>
+                <label class="prof-pic">
+                  <input type="file" id="profile-pic" style="display:none">
+                  <img src="../../images/auth/prof-pic-placeholder.svg"> 
+                  <p>Insert Photo</p>
+                </label>
               </div>
                 <!-- Title -->
               <form class="top-right">
@@ -93,20 +98,76 @@
                 </div>
                 <!-- Sixth Line -->
                 <div class="form-group-2">
-                    <select class="form-control form-control-lg" id="City">
-                        <option>City</option>
-                        </select><span class="count text-danger">*</span>
-                </div>
-                <div class="form-group-2">
-                    <select class="form-control form-control-lg" id="Province/State">
-                        <option>Province/State</option>
-                        </select><span class="count text-danger">*</span>
-                </div>
-                <div class="form-group-2">
-                    <select class="form-control form-control-lg" id="Country">
+                    <select class="form-control form-control-lg" id="country">
                         <option>Country</option>
                         </select><span class="count text-danger">*</span>
                 </div>
+                <div class="form-group-2">
+                    <select class="form-control form-control-lg" id="state-code"><option>State</option></select>
+                    </select><span class="count text-danger">*</span>
+                </div>
+                <div class="form-group-2">
+                  <input type="text" class="form-control form-control-lg" id="city" placeholder="City"></select><span class="count text-danger">*</span>
+                </div>
+
+                <script>
+                  // default
+                  let user_country_code = "ZC";
+                  
+                  (function () {
+                      // script https://www.html-code-generator.com/html/drop-down/country-region
+                  
+                      // Get the country name and state name from the imported script.
+                      let country_list = country_and_states['country'];
+                      let states_list = country_and_states['states'];
+                  
+                      // creating country name drop-down
+                      let option =  '';
+                      //do not remove, might cause regression bugs
+                      //option += '<option>select country</option>';
+                      for(let country_code in country_list){
+                          // set selected option user country
+                          let selected = (country_code == user_country_code) ? ' selected' : '';
+                          option += '<option value="'+country_code+'"'+selected+'>'+country_list[country_code]+'</option>';
+                      }
+                      document.getElementById('country').innerHTML = option;
+                  
+                      // creating states name drop-down
+                      let text_box = '<input type="text" class="input-text" id="states">';
+                      let state_code_id = document.getElementById("state-code");
+                  
+                      function create_states_dropdown() {
+                          // get selected country code
+                          let country_code = document.getElementById("country").value;
+                          let states = states_list[country_code];
+                          // invalid country code or no states add textbox
+                          if(!states){
+                              state_code_id.innerHTML = text_box;
+                              return;
+                          }
+                          let option = '';
+                          if (states.length > 0) {
+                              option = '<select id="states">\n';
+                              for (let i = 0; i < states.length; i++) {
+                                  option += '<option value="'+states[i].code+'">'+states[i].name+'</option>';
+                              }
+                              option += '</select>';
+                          } else {
+                              // create input textbox if no states 
+                              option = text_box
+                          }
+                          state_code_id.innerHTML = option;
+                      }
+                  
+                      // country select change event
+                      const country_select = document.getElementById("country");
+                      country_select.addEventListener('change', create_states_dropdown);
+                  
+                      create_states_dropdown();
+                  })();
+                  
+                  </script>
+
                 <!-- Seventh Line -->
                 <div class="form-group-1">
                     <input type="text" class="form-control form-control-lg" id="occupation" placeholder="Occupation">
@@ -120,7 +181,7 @@
                 </div>
                 <!-- Ninth Line -->
                 <div class="form-group-1">
-                    <input type="text" class="form-control form-control-lg" id="occupation" placeholder="Occupation">
+                    <input type="text" class="form-control form-control-lg" id="occupation" placeholder="Email">
                 </div>
                 <div class="mt-3">
                   <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">BACK</a>
