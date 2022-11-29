@@ -513,3 +513,8 @@
     
   });
 })(jQuery);
+
+var dt = new Date();
+document.getElementById('date-only').innerHTML=dt.toLocaleDateString();
+
+
