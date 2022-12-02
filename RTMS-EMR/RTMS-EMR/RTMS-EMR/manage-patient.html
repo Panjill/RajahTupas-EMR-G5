@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, shrink-to-fit=yes">
+    <link rel="icon" href="graphics/rtms-logo.png" type="image">
+    <title>Rajah Tupas EMR</title>
+
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <link rel="stylesheet" href="css/styles_manage.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <header class="header w3-animate-top">
+            <div id="menu-btn" class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <span id="search-img" class="material-icons-outlined text-to-darkbg">search</span>
+            <div id="main-searchbar" class="search-division">
+                <div class="header-left">
+                    <input id="searchbar" name="search" type="text" placeholder="Search">
+                </div>
+            </div>
+            <div id="main-headerspace" class="header-space">
+            </div>
+            <div>
+                <div class="datetime">
+                    <div class="time"></div>
+                    <div class="date"></div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+            <!-- Sidebar -->
+            <aside id="sidebar">
+            <div class="sidebar-title">
+                <span class="sidebar-close material-icons-outlined w3-animate-zoom" onclick="closeSidebar()">close</span>
+            </div>
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img draggable="false" id="header-image" src="graphics/rtms-logo.png" />
+                    <p id="header-title">Rajah Tupas</p>
+                    <p id="header-subtitle">Medical Services</p>
+                </div>
+                
+            </div>
+            <p id="sidebar-separator">__________________________</p>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">dashboard</span><a class="sidebar-link" href="homepage.html">Homepage</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">person_add</span><a class="sidebar-link" href="register-patient.html">Patient Registration</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">list_alt</span><a class="sidebar-link" href="list-patient.html">Patient List</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">manage</span><a class="sidebar-link" href="homepage.html">Manage Accounts</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">settings</span><a class="sidebar-link" href="homepage.html">Settings</a>
+                </li>
+                <li id="sidebar-separator-bottom">__________________________</li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">logout</span><a id="logout" class="sidebar-link" href="homepage.html">Logout</a>
+                </li>
+                <li>
+                    <span class="material-icons-outlined"></span><a></a>
+                </li>
+            </ul>
+        </aside>
+        <!-- End Sidebar -->
+        <!-- Main -->
+        <main id="main-container" class=" div-grid main-container w3-animate-right">
+            
+            <div class="main-cards-manage">
+                <div class="card w3-hover-shadow">
+                    <!-- Title -->
+                    <div class="card-container">
+                            <div id="backButtonIcon" class="backButtonIcon">
+                                <span class="material-icons-outlined">arrow_back_ios_new</span><a class="backButton">BACK</a>
+                            </div>
+                    <div id="header-pform" class="w3-animate-opacity">
+                        <a>PATIENT INFORMATION</a>
+                    </div>
+                    <div class="card-inner">
+                            <ul class="card-container-list">
+                                <div class="picture-center">
+                                    <img src="graphics/patient-icon.png" alt="Avatar" draggable="false" class="w3-left w3-circle picture-size">
+                                </div>
+                                <div class="id-val">ID:
+                                    <a id="mpatientID" value="#"></a>
+                                </div>
+                                <li class="card-list-items">
+                                    <!-- First Line -->
+                                    <div class="form-group-2">
+                                        <input type="text" class="first form-control form-control-lg" id="mfirstName" placeholder="First Name"><span class="count text-danger">*</span>
+                                        <input type="text" class="middle form-control form-control-lg" id="mmiddleName" placeholder="Middle Name"><span class="count text-danger">*</span>
+                                        <input type="text" class="last form-control form-control-lg" id="mlastName" placeholder="Last Name"><span class="count text-danger">*</span>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Second Line -->
+                                    <div class="form-group-3">
+                                        <input type="text" class="birth form-control form-control-lg" id="mbirthDate" placeholder="DD/MM/YYYY"><span class="count text-danger">*</span>
+                                        <input type="text" class="age form-control form-control-lg" id="mage" placeholder="Age"><span class="count text-danger">*</span>
+                                        <select class="sex form-control form-control-lg" id="msex">
+                                            <option>Sex</option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select><span class="count text-danger">*</span>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Third Line -->
+                                    <div class="form-group-1">
+                                        <input type="text" class="form-control form-control-lg" id="mreligion" placeholder="Religion">
+                                    </div>            
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Fourth Line -->
+                                    <div class="form-group-5">
+                                        <div class="single">
+                                            <input type="radio" id="msingle" name="maritalStatus" value="single">
+                                            <label for="single">Single</label><br>
+                                        </div>
+                                        <div class="married">
+                                            <input type="radio" id="mmarried" name="maritalStatus" value="married">
+                                            <label for="married">Married</label><br>
+                                        </div>
+                                        <div class="divorced">
+                                            <input type="radio" id="mdivorced" name="maritalStatus" value="divorced">
+                                            <label for="html">Divorced</label><br>
+                                        </div>
+                                        <div class="separated">
+                                            <input type="radio" id="mseparated" name="maritalStatus" value="separated">
+                                            <label for="divorced">Separated</label><br>
+                                        </div>
+                                        <div class="widowed">
+                                            <input type="radio" id="mwidowed" name="maritalStatus" value="widowed">
+                                            <label for="widowed">Widowed</label><br>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Fifth Line -->
+                                    <div class="form-group-4">
+                                        <input type="text" class="street form-control form-control-lg" id="mstreetAddress" placeholder="Street Address"><span class="count text-danger">*</span>
+                                        <input type="text" class="zip form-control form-control-lg" id="mzipCode" placeholder="Zip"><span class="count text-danger">*</span>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Sixth Line -->
+                                    <div class="form-group-2">
+                                        <div class="city">
+                                            <select class="form-control form-control-lg" id="mCity">
+                                                <option>City</option>
+                                            </select><span class="count text-danger">*</span>
+                                        </div>
+                                        <div class="province">
+                                            <select class="form-control form-control-lg" id="mProvinceState">
+                                                <option>Province/State</option>
+                                            </select><span class="count text-danger">*</span>
+                                        </div>
+                                        <div class="country">
+                                            <select class="form-control form-control-lg" id="mCountry">
+                                                <option>Country</option>
+                                            </select><span class="count text-danger">*</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Seventh Line -->
+                                    <div class="form-group-1">
+                                        <input type="text" class="form-control form-control-lg" id="moccupation" placeholder="Occupation"><span class="count text-danger">*</span>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Eight Line -->
+                                    <div class="form-group-6">
+                                        <input type="text" class="mobile form-control form-control-lg" id="mmobileNo" placeholder="Mobile Number"><span class="count text-danger">*</span>
+                                        <input type="text" class="telephone form-control form-control-lg" id="mtelephoneNo" placeholder="Telephone Number">
+                                </li>
+                                <div class="btn-grid">
+                                    <div class="w3-center">
+                                        <a id="deleteBtn" class="btn-block" href="#">DELETE</a>
+                                    </div>
+                                    <div class="w3-center">
+                                        <a id="updateBtn" class="btn-block" href="#">UPDATE</a>
+                                    </div>
+                                </div>
+                            </ul>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- End Main -->
+    <!-- Scripts -->
+    <script src="./js/scripts.js"></script>
+    <script type="module" src="./js/script_login.js"></script>
+    <!-- Custom JS -->
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, shrink-to-fit=yes">
+    <link rel="icon" href="graphics/rtms-logo.png" type="image">
+    <title>Rajah Tupas EMR</title>
+
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/styles_list.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles_form.css">
+    
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <header class="header w3-animate-top">
+            <div id="menu-btn" class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <span id="search-img" class="material-icons-outlined text-to-darkbg">search</span>
+            <div id="main-searchbar" class="search-division">
+                <div class="header-left">
+                    <input id="searchbar" name="search" type="text" placeholder="Search">
+                </div>
+            </div>
+            <div id="main-headerspace" class="header-space">
+            </div>
+            <div>
+                <div class="datetime">
+                    <div class="time"></div>
+                    <div class="date"></div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <span class="sidebar-close material-icons-outlined w3-animate-zoom" onclick="closeSidebar()">close</span>
+            </div>
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img draggable="false" id="header-image" src="graphics/rtms-logo.png" />
+                    <p id="header-title">Rajah Tupas</p>
+                    <p id="header-subtitle">Medical Services</p>
+                </div>
+                
+            </div>
+            <p id="sidebar-separator">__________________________</p>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">dashboard</span><a class="sidebar-link" href="homepage.html">Homepage</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">person_add</span><a class="sidebar-link" href="register-patient.html">Patient Registration</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">list_alt</span><a class="sidebar-link" href="list-patient.html">Patient List</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">manage</span><a class="sidebar-link" href="homepage.html">Manage Accounts</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">settings</span><a class="sidebar-link" href="homepage.html">Settings</a>
+                </li>
+                <li id="sidebar-separator-bottom">__________________________</li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">logout</span><a id="logout" class="sidebar-link" href="homepage.html">Logout</a>
+                </li>
+                <li>
+                    <span class="material-icons-outlined"></span><a></a>
+                </li>
+            </ul>
+        </aside>
+        <!-- End Sidebar -->
+        <!-- Main -->
+        <main id="main-container" class="main-container">
+            <div id="patientListHead" style="display:block" class="main-title">
+                <p class="font-weight-bold w3-animate-opacity">PATIENT LIST</p>
+            </div>
+            <div id="plist-container" class="patient-list-container">
+                <div id="managePatient" class="main-cards">
+                <!--Add Patient Card Here-->
+                <!--End Patient Card Here-->
+                </div>
+            </div>
+        </main>
+        <!-- End Main -->
+    </div>
+    <!-- Scripts -->
+    <script src="./js/scripts.js"></script>
+    <script type="module" src="./js/script_login.js"></script>
+    <!-- Custom JS -->
+</body>
+</html>
