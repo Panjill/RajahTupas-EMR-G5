@@ -14,10 +14,9 @@
 
 #pro-pic {
     font-size: 100px;
-    position: absolute;
-    left: 740px;
-    top: 100px;
-    margin: 0px;
+    float: right;
+    padding-right: 150px;
+    padding-top: 30px;
     color: lightcoral;
 }
 
@@ -35,6 +34,7 @@
 }
 
 /* Forms */
+
 .form-group {
     margin-bottom: 1rem;
 }

@@ -74,9 +74,9 @@ if (submitBtn != null) {
 
         var streetAddress = document.getElementById("streetAddress").value;
         var zipCode = document.getElementById("zipCode").value;
-        var City = document.getElementById("City").value;
-        var ProvinceState = document.getElementById("ProvinceState").value;
-        var Country = document.getElementById("Country").value;
+        var City = document.getElementById("city").value;
+        var ProvinceState = document.getElementById("state-code").value;
+        var Country = document.getElementById("country").value;
         var occupation = document.getElementById("occupation").value;
         var mobileNo = document.getElementById("mobileNo").value;
         var telephoneNo = document.getElementById("telephoneNo").value;
