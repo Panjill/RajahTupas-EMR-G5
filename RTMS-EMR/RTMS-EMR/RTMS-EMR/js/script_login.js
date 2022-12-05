@@ -395,7 +395,7 @@ if (logout != null) {
 
 if (login != null) {
     login.addEventListener('click', (e) => {
-        getDT();
+
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
 
