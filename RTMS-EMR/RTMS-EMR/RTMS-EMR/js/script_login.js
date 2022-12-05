@@ -44,8 +44,9 @@ let currentDate = `${month}/${day}/${year}`;
 //Submit Patient to Firebase
 if (submitBtn != null) {
     submitBtn.addEventListener('click', (e) => {
+
         
-        var patientID = document.getElementById("patientID").value;
+        var patientID = crypto.randomUUID();
         var firstName = document.getElementById("firstName").value;
         var middleName = document.getElementById("middleName").value;
         var lastName = document.getElementById("lastName").value;

@@ -5,21 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, shrink-to-fit=yes">
     <link rel="icon" href="graphics/rtms-logo.png" type="image">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Rajah Tupas EMR</title>
 
     <!-- Montserrat Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="css/styles_form.css">
     <link rel="stylesheet" href="css/styles.css">
-    
+    <link rel="stylesheet" href="css/styles_form.css">
+
+    <!-- JS List of Country and States -->
+    <script src="js/country-states.js"></script>
+
 </head>
 <body>
     <div class="grid-container">
@@ -94,14 +96,10 @@
                             <!-- Title -->
                             <div id="header-pform">
                                 <a class="header-pform-text" >PATIENT REGISTRATION FORM</a>
-                                <div class="patientID">
-                                    <input type="text" id="patientID" class="form-control form-control-lg" placeholder="ID Number"></a><span style="font-size: 12px;" class="count text-danger">*</span>
-                                </div>
-                                <div>
-                                    <input type="file" id="image-input" class="prof-pic" accept="image/jpeg, image/jpg, image/png">
+                                <label>
+                                    <input type="file" id="image-input" class="prof-pic" accept="image/jpeg, image/jpg, image/png" style="display:none">
                                     <span id="pro-pic" draggable="false" class="material-icons-outlined text-to-whitebg">add_a_photo</span>
-                                </div>
-                               
+                                </label>
                             </div>
                         </div>
                         <!-- First Line -->
@@ -162,20 +160,77 @@
                         </div>
                         <!-- Sixth Line -->
                         <div class="form-group-2">
-                            <select class="form-control form-control-lg" id="City">
-                                <option>City</option>
+                            <select class="form-control form-control-lg" id="country">
                             </select><span class="count text-danger">*</span>
                         </div>
                         <div class="form-group-2">
-                            <select class="form-control form-control-lg" id="ProvinceState">
-                                <option>Province/State</option>
+                            <select class="form-control form-control-lg" id="state-code">
                             </select><span class="count text-danger">*</span>
                         </div>
                         <div class="form-group-2">
-                            <select class="form-control form-control-lg" id="Country">
-                                <option>Country</option>
-                            </select><span class="count text-danger">*</span>
+                        <input type="text" class="form-control form-control-lg" id="city" placeholder="City"></select><span class="count text-danger">*</span>
                         </div>
+
+                        <script>
+                            // default
+                            let user_country_code = "ZC";
+                            
+                            (function () {
+                                // script https://www.html-code-generator.com/html/drop-down/country-region
+                            
+                                // Get the country name and state name from the imported script.
+                                let country_list = country_and_states['country'];
+                                let states_list = country_and_states['states'];
+                            
+                                // creating country name drop-down
+                                let option =  '';
+                                //do not remove, might cause regression bugs
+                                //option += '<option>select country</option>';
+                                for(let country_code in country_list){
+                                    // set selected option user country
+                                    let selected = (country_code == user_country_code) ? ' selected' : '';
+                                    option += '<option value="'+country_code+'"'+selected+'>'+country_list[country_code]+'</option>';
+                                }
+                                document.getElementById('country').innerHTML = option;
+                            
+                                // creating states name drop-down
+                                let text_box = '<input type="text" class="input-text" id="states">';
+                                let state_code_id = document.getElementById("state-code");
+                            
+                                function create_states_dropdown() {
+                                    // get selected country code
+                                    let country_code = document.getElementById("country").value;
+                                    let states = states_list[country_code];
+                                    // invalid country code or no states add textbox
+                                    if(!states){
+                                        state_code_id.innerHTML = text_box;
+                                        return;
+                                    }
+                                    let option = '';
+                                    if (states.length > 0) {
+                                        option = '<select id="states">\n';
+                                        for (let i = 0; i < states.length; i++) {
+                                            option += '<option value="'+states[i].code+'">'+states[i].name+'</option>';
+                                        }
+                                        option += '</select>';
+                                    } else {
+                                        // create input textbox if no states 
+                                        option = text_box
+                                    }
+                                    state_code_id.innerHTML = option;
+                                }
+                            
+                                // country select change event
+                                const country_select = document.getElementById("country");
+                                country_select.addEventListener('change', create_states_dropdown);
+                            
+                                create_states_dropdown();
+                            })();
+                            
+                        </script> 
+
+
+
                         <!-- Seventh Line -->
                         <div class="form-group-1">
                             <input type="text" class="form-control form-control-lg" id="occupation" placeholder="Occupation">
