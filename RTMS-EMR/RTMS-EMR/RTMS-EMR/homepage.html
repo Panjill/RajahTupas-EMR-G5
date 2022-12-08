@@ -86,7 +86,24 @@
         <!-- Main -->
         <main id="main-container" class="main-container w3-animate-opacity">
             <div id="announcementForm" style="display:block" class="main-title">
-                <p class="font-weight-bold">ANNOUNCEMENT</p>
+                <p class="font-weight-bold w3-animate-opacity">ANNOUNCEMENT BOARD
+                    <span id="addBoard" class="material-icons-outlined add_board w3-hover-shadow">add_box</span><a class="board-link" href="#"></a>
+                </p>
+            </div>
+            <div id="announcement-container" class="announcement-container">
+                <!--Start Add Board Here-->
+                <form id="board-display" class="board-container">
+                    <div class="board-page w3-animate-right">
+                        <textarea id="boardsubject" class="inputSubject w3-hover-shadow" placeholder="Subject"></textarea><br>
+                        <textarea id="boardbody" class="inputBody w3-hover-shadow" placeholder="Message"></textarea>
+                        <br>
+                        <a id="sendBoard" class="btnboard" href="#">Send</a>
+                        <a class="btnboard" href="homepage.html">Cancel</a>
+                    </div>
+                </form>
+                <div id="mainboard" class="main-board"></div>
+                <!--End Add Board Here-->
+                </div>
             </div>
         </main>
         <!-- End Main -->

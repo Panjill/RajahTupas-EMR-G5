@@ -44,7 +44,7 @@ let currentDate = `${month}/${day}/${year}`;
 //Submit Patient to Firebase
 if (submitBtn != null) {
     submitBtn.addEventListener('click', (e) => {
-        
+
         var patientID = document.getElementById("patientID").value;
         var firstName = document.getElementById("firstName").value;
         var middleName = document.getElementById("middleName").value;
@@ -73,16 +73,16 @@ if (submitBtn != null) {
 
         var streetAddress = document.getElementById("streetAddress").value;
         var zipCode = document.getElementById("zipCode").value;
-        var City = document.getElementById("City").value;
-        var ProvinceState = document.getElementById("ProvinceState").value;
-        var Country = document.getElementById("Country").value;
+        var City = document.getElementById("city").value;
+        var ProvinceState = document.getElementById("state-code").value;
+        var Country = document.getElementById("country").value;
         var occupation = document.getElementById("occupation").value;
         var mobileNo = document.getElementById("mobileNo").value;
         var telephoneNo = document.getElementById("telephoneNo").value;
 
         if (patientID == "" || firstName == "" || middleName == "" || lastName == "" || birthDate == "" ||
-            age == "" || sex == "" || religion == "" ||
-            streetAddress == "" || zipCode == "" || occupation == "" || mobileNo == "" || telephoneNo == "") {
+            age == "" || sex == "" || religion == "" || country == "" || city == "" ||
+            streetAddress == "" || zipCode == "" || occupation == "" || mobileNo == "") {
 
             alert("Please fill-up required information");
         }
@@ -110,8 +110,8 @@ if (submitBtn != null) {
                 MobileNumber: mobileNo,
                 TelephoneNumber: telephoneNo
             });
-
             alert("Registered Successfully");
+            window.location.href = "register-patient.html"
         }
     });     
 }
@@ -190,65 +190,67 @@ function getPatientManage(){
             var zipCode = document.getElementById("mzipCode");
             var City = document.getElementById("mCity");
             var ProvinceState = document.getElementById("mProvinceState");
+            var getProvinceStateID = null;
             var Country = document.getElementById("mCountry");
+            var getCountryID = null;
             var occupation = document.getElementById("moccupation");
             var mobileNo = document.getElementById("mmobileNo");
             var telephoneNo = document.getElementById("mtelephoneNo");
-    
+
             const dbref = ref(database);
-    
+
             get(child(dbref,"patient/"+ idVal)).then((snapshot)=>{
+           
                 if(snapshot.exists()){
-                    patientID.innerHTML = String(snapshot.val().PatientID).padStart(6,'0');
-                    firstName.value = snapshot.val().FirstName;
-                    middleName.value = snapshot.val().MiddleName;
-                    lastName.value = snapshot.val().LastName;
-                    birthDate.value = snapshot.val().BirthDate;
-                    age.value = snapshot.val().Age;
-                    sex.value = snapshot.val().Sex;
-                    religion.value = snapshot.val().Religion;
-                    if(snapshot.val().MaritalStatus == 'single')
-                    {
-                        document.getElementById('msingle').checked = true;
-                    }
-                    else if(snapshot.val().MaritalStatus == 'married')
-                    {
-                        document.getElementById('mmarried').checked = true;
-                    }
-                    else if(snapshot.val().MaritalStatus == 'divorced')
-                    {
-                        document.getElementById('mdivorced').checked = true;
-                    }
-                    else if(snapshot.val().MaritalStatus == 'separated')
-                    {
-                        document.getElementById('mseparated').checked = true;
-                    }
-                    else if(snapshot.val().MaritalStatus == 'widowed')
-                    {
-                        document.getElementById('mwidowed').checked = true;
-                    }
-    
-                    streetAddress.value = snapshot.val().StreetAddress;
-                    zipCode.value = snapshot.val().ZipCode;
-                    City.value = snapshot.val().City;
-                    ProvinceState.value = snapshot.val().ProvinceState;
-                    Country.value = snapshot.val().Country;
-                    occupation.value = snapshot.val().Occupation;
-                    mobileNo.value = snapshot.val().MobileNumber;
-                    telephoneNo.value = snapshot.val().TelephoneNumber;
+                patientID.innerHTML = String(snapshot.val().PatientID).padStart(6,'0');
+                firstName.value = snapshot.val().FirstName;
+                middleName.value = snapshot.val().MiddleName;
+                lastName.value = snapshot.val().LastName;
+                birthDate.value = snapshot.val().BirthDate;
+                age.value = snapshot.val().Age;
+                sex.value = snapshot.val().Sex;
+                religion.value = snapshot.val().Religion;
+                if(snapshot.val().MaritalStatus == 'single')
+                {
+                    document.getElementById('msingle').checked = true;
                 }
-               
-                else{
-                    alert("No data found");
+                else if(snapshot.val().MaritalStatus == 'married')
+                {
+                    document.getElementById('mmarried').checked = true;
                 }
-            })
-    
-            .catch((error) => {
-                alert("unsuccessful, error"+error);
-            });
+                else if(snapshot.val().MaritalStatus == 'divorced')
+                {
+                    document.getElementById('mdivorced').checked = true;
+                }
+                else if(snapshot.val().MaritalStatus == 'separated')
+                {
+                    document.getElementById('mseparated').checked = true;
+                }
+                else if(snapshot.val().MaritalStatus == 'widowed')
+                {
+                    document.getElementById('mwidowed').checked = true;
+                }
+
+                streetAddress.value = snapshot.val().StreetAddress;
+                zipCode.value = snapshot.val().ZipCode;
+                City.value = snapshot.val().City;
+                getProvinceStateID = snapshot.val().ProvinceState;
+                getCountryID = snapshot.val().Country;
+                occupation.value = snapshot.val().Occupation;
+                mobileNo.value = snapshot.val().MobileNumber;
+                telephoneNo.value = snapshot.val().TelephoneNumber;
+
+                
+            }
+            else{
+                
+                alert("No data found");
+            }
+        })
+        .catch((error) => {
+            alert("unsuccessful, error"+error);
+        });
     }
-
-
 }
 
 /*
@@ -267,6 +269,112 @@ if (getData != null) {
 */
 
 // update data
+
+// Create Announcement Board
+
+const board = document.querySelector('.main-board');
+
+window.onload = getBoard();
+
+function loadBoard(theBoard) {
+
+    theBoard.forEach(element => {
+        let createBoard = [element.Subject, element.Body, element.DatePublished];
+        showBoard(createBoard);
+    })
+};
+
+function showBoard([subject, body, datePublished]){
+    
+    let code = `
+    <div id="boardcontainer" class="board-container">
+        <div class="board-page w3-animate-right w3-hover-shadow">
+            <h4 id="subject"><strong>${subject}</strong>
+            <a id="removeBoard" class="btnboard" href="#">
+            <span class="material-icons-outlined">delete</span></a></h4>
+            <p id="body">${body}</p><br>
+            <p style="text-align: right; font-size: 14px;">Date Published:${datePublished}</p>
+        </div>
+    </div>
+    `;
+    if(board != null)
+    {
+        board.innerHTML += code;
+    }
+}
+
+var boardcontainter = document.getElementById("removeBoard");
+
+if(boardcontainter != null)
+{
+    boardcontainter.addEventListener('click', (e) => {
+        alert("clicked");
+        
+    })
+}
+
+
+function getBoard() {
+    const dbref = ref(database);
+
+    get(child(dbref, "announcement"))
+    .then((snapshot)=>{
+        var theBoard = [];
+
+        snapshot.forEach(childSnapshot => {
+            theBoard.push(childSnapshot.val());
+        });
+
+        loadBoard(theBoard);
+    })
+}
+
+var addBoard = document.getElementById("addBoard");
+
+if(addBoard != null)
+{
+    addBoard.addEventListener('click', (e) => {
+    addBoard.style.display = "none";
+    document.getElementById("board-display").style.display = "block";
+    });
+}
+
+var eventSubject = document.getElementById("boardsubject");
+
+if(eventSubject != null) {
+    eventSubject.addEventListener("keypress", function(e) {
+        if (e.key == "Enter" && !e.shiftKey)
+        {
+        // prevent default behavior
+        e.preventDefault();
+        return false;
+        }
+    })
+}
+
+
+var sendBoard = document.getElementById("sendBoard");
+
+if (sendBoard != null) {
+    sendBoard.addEventListener('click', (e) => {
+        var boardSubject = document.getElementById("boardsubject").value;
+        var boardBody = document.getElementById("boardbody").value;
+
+        if(boardSubject == "" || boardBody == "") {
+            alert("Missing Content");
+        }
+        else{
+            set(ref(database, 'announcement/' + boardSubject), {
+                Subject: boardSubject,
+                Body: boardBody,
+                DatePublished: currentDate
+            });
+        alert("Announcement Published");
+        window.location.href = "homepage.html";
+        addBoard.style.display = "inline-block";
+        }
+    });
+};
 
 var updateData = document.getElementById("updateBtn");
 
@@ -309,14 +417,12 @@ if (updateData != null) {
         var telephoneNo = document.getElementById("mtelephoneNo").value;
 
         if (patientID == "" || firstName == "" || middleName == "" || lastName == "" || birthDate == "" ||
-            age == "" || sex == "" || religion == "" || 
-            streetAddress == "" || zipCode == "" || occupation == "" || mobileNo == "" || telephoneNo == "") {
+        age == "" || sex == "" || religion == "" || Country == "" || City == "" || ProvinceState == "" ||
+        streetAddress == "" || zipCode == "" || occupation == "" || mobileNo == "") {
 
-            alert("Please fill-up required information");
+        alert("Please fill-up required information");
         }
-
-        else
-        {
+        else {
             update(ref(database, 'patient/' + patientID), {
                 FirstName: firstName,
                 MiddleName: middleName,
