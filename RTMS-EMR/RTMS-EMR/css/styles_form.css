@@ -1,0 +1,319 @@
+﻿/*Registration Form*/
+#image-input {
+    font-size: 12px;
+    float: right;
+    width: 90px;
+    height: auto;
+    position: absolute;
+    left: 840px;
+    top: 100px;
+    background-position: center;
+    margin-left: 0px;
+    background-size: cover;
+}
+
+
+#pro-pic {
+    font-size: 100px;
+    text-align: center;
+    padding-right: 130px;
+    padding-top: 30px;
+    color: lightcoral;
+}
+
+#pro-pic:hover {
+    color: lightslategrey;
+    cursor: pointer;
+}
+
+.photo-display {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.patientID {
+    margin-left: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    height: 20px;
+    width: 140px;
+}
+
+/* Forms */
+.form-group-1 {
+    width: 100%;
+    padding-right: 0.50rem;
+    padding-left: 0.50rem;
+    
+}
+
+.form-group-2 {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    padding-right: 0.50rem;
+    padding-left: 0.50rem;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "first middle last";
+}
+
+.first {
+    grid-area: first;
+}
+.middle {
+    grid-area: middle;
+}
+.last {
+    grid-area: last;
+}
+
+.form-group-3 {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    padding-right: 0.50rem;
+    padding-left: 0.50rem;
+    gap: 10px;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas:
+        "birth age sex";
+    
+}
+.birth {
+    grid-area: birth;
+}
+.age {
+    grid-area: age;
+}
+.sex {
+    grid-area: sex;
+}
+
+.form-group-4 {
+    margin-bottom: 0.5rem;
+    display: grid;
+    width: 100%;
+    padding-right: 0.50rem;
+    padding-left: 0.50rem;
+    gap:10px;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+        "street zip";
+}
+.street{grid-area: street;}
+.zip{grid-area: zip;}
+
+.form-group-5 {
+    color: rgba(0,0,0,0.8);
+    display: grid;
+    width: 100%;
+    padding-right: 0.50rem;
+    padding-left: 0.50rem;
+    align-items: left;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "single married divorced separated widowed";
+}
+
+.single { grid-area: single; width:71px; height: 20px;}
+.married { grid-area: married; width:81px; height: 20px;}
+.divorced {grid-area: divorced; width:90px; height: 20px;}
+.separated {grid-area: separated; width:100px; height: 20px;}
+.widowed {grid-area: widowed; width:95px; height: 20px;}
+
+.form-group-6 {
+    color: rgba(255,255,255,255.8);
+    display: grid;
+    width: 100%;
+    padding-right: 0.50rem;
+    padding-left: 0.50rem;
+    gap: 10px;
+    align-items: left;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "mobile telephone";
+}
+
+.mobile {grid-area: mobile;}
+.telephone {grid-area: telephone;}
+
+
+.input-group-append,
+.input-group-prepend {
+    color: #c9c8c8;
+    width: auto;
+    border: none;
+}
+
+    .input-group-append .input-group-text,
+    .input-group-prepend .input-group-text {
+        border-color: #f3f3f3;
+        padding: 0.875rem 0.75rem;
+        color: #c9c8c8;
+    }
+
+.form-control {
+    border: 1px solid #005334;
+    font-weight: 400;
+    font-size: 0.875rem;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    color: rgba(0,0,0,0.8);
+}
+
+.form-control-lg {
+    margin-left: 1px;
+    padding: 10px 5px 10px 10px;
+    margin-top: 1px;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    line-height: 1.4rem;
+    vertical-align: top;
+    margin-bottom: .5rem;
+}
+
+.form-group.has-danger .form-control {
+    border-color: theme-color(danger);
+}
+
+.form-group .file-upload-default {
+    visibility: hidden;
+    position: absolute;
+}
+
+.form-group .file-upload-info {
+    background: transparent;
+}
+
+/*Layout*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #effcfa;
+}
+
+.material-icons-outlined {
+    vertical-align: middle;
+    line-height: 1px;
+    width: 28px;
+    margin-bottom: 2px;
+}
+
+#header-pform {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.text-to-whitebg {
+    color: rgba(0, 0, 0, 0.70);
+}
+
+.text-to-darkbg {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+div.form-container {
+    width: fit-content;
+    height: auto;
+    background: #ffffff;
+    list-style-type: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px -6px black;
+    padding: 20px 20px 20px 20px;
+}
+
+div.pform {
+    font-family: "Montserrat", sans-serif;
+    width:fit-content;
+    padding: 5px;
+}
+
+.mt-3 {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.btn-grid {
+    color: rgba(255,255,255,255.8);
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    align-items: left;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "btn-block btn-block ";
+}
+
+.btn-block {
+    grid-area: btn-block;
+    width: 100%;
+    height: 100%;
+    color: #013020;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+    .btn-block:hover {
+        color: #3b7105;
+    }
+
+.margin-left{
+    margin-left:30%;
+    margin-right:10px;
+}
+
+.margin-right{
+    margin-right:30%;
+    margin-left:10px;
+}
+    
+.text-danger {
+    display: block;
+    float: left;
+    color: lightcoral;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.line-separator {
+    color:rgba(0, 0, 0, 0.70);
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
