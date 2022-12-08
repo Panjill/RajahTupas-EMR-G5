@@ -253,6 +253,104 @@ body {
     }
 
 
+/* ------ Announcement Board --------*/
+.add_board {
+    vertical-align: center;
+    font-size: 40px;
+    color: #013020;
+}
+
+.add_board:hover {
+    color: #3b7105;
+    cursor: pointer;
+}
+
+.board-container {
+    height: 100%;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+
+.board-page {
+    background-color: white;
+    border-radius: 15px;
+
+    width: 100%;
+    height: fit-content;
+    padding: 15px 15px 15px 15px;
+    display: block;
+    text-align: justify;
+    box-shadow: 3px 4px rgba(0,0,0,0.3);
+}
+
+.inputSubject {
+    padding: 5px 5px 5px 5px;
+    display: block;
+    width: 100%;
+    height: 60px;
+    word-break: break-all;
+    white-space: normal;
+    border-radius: 5px;
+    text-align: justify;
+    resize: none;
+    border-color: transparent;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    outline: transparent;
+}
+
+.inputSubject:focus {
+    color: rgba(0,0,0,.9);
+}
+
+.inputBody { 
+    padding: 5px 5px 5px 5px;
+    display: block;
+    width: 100%;
+    height: 150px;
+    word-break: break-all;
+    white-space: normal;
+    border-radius: 5px;
+    text-align: justify;
+    resize: none;
+    border-color: transparent;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    outline: transparent;
+}
+
+.inputBody:focus {
+    color: rgba(0,0,0,.9);
+}
+
+.btnboard {
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left:20px;
+    color: rgba(0,0,0,.9);
+    text-decoration: none;
+}
+
+.btnboard:hover {
+    cursor: pointer;
+    color: rgba(0,0,0,.6);
+}
+
+#board-display {
+    display: none;
+}
+
+#removeBoard {
+    position: absolute;
+    right: 20px;
+    color: rgb(240, 84, 84);
+}
+
+#removeBoard:hover {
+    cursor: pointer;
+    color: rgba(240, 84, 84, 0.6);
+}
+
 /* ---------- SCROLLBARS ---------- */
 
 ::-webkit-scrollbar {
@@ -346,6 +444,18 @@ body {
     font-size: 1.5em;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* ---------- MEDIA QUERIES ---------- */
 
 /* Medium <= 992px */
@@ -391,6 +501,17 @@ body {
         gap: 10px;
         margin-bottom: 0;
     }
+    #header-pform {
+        font-size: 20px;
+    }
+
+    .form-group-2 {
+        display: inline-block;
+        line-height-step: 10px;
+    }
+    .form-control {
+        margin-bottom: 10px;
+    }
 }
 /*Search Bar*/
 /* Extra Small <= 576px */
@@ -410,6 +531,19 @@ body {
 
     .date {
         font-size: 1.2em;
+    }
+
+    #header-pform {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .form-group-2 {
+        display: inline-block;
+        line-height-step: 10px;
+    }
+    .form-control {
+        margin-bottom: 10px;
     }
 }
 

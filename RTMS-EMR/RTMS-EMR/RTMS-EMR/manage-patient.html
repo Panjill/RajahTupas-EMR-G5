@@ -17,9 +17,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    
     <link rel="stylesheet" href="css/styles_manage.css">
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- JS List of Country and States -->
+    <script src="js/country-states.js"></script>
 </head>
 <body>
     <div class="grid-container">
@@ -115,8 +117,9 @@
                                 <li class="card-list-items">
                                     <!-- Second Line -->
                                     <div class="form-group-3">
-                                        <input type="text" class="birth form-control form-control-lg" id="mbirthDate" placeholder="DD/MM/YYYY"><span class="count text-danger">*</span>
-                                        <input type="text" class="age form-control form-control-lg" id="mage" placeholder="Age"><span class="count text-danger">*</span>
+                                        <input type="date" min="1900-01-01" class="birth form-control form-control-lg" id="mbirthDate" placeholder="DD/MM/YYYY"><span class="count text-danger">*</span>
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1" max="150"  maxlength="3" class="form-control form-control-lg" id="mage" placeholder="Age"><span class="count text-danger">*</span>
                                         <select class="sex form-control form-control-lg" id="msex">
                                             <option>Sex</option>
                                             <option>Male</option>
@@ -158,30 +161,86 @@
                                     <!-- Fifth Line -->
                                     <div class="form-group-4">
                                         <input type="text" class="street form-control form-control-lg" id="mstreetAddress" placeholder="Street Address"><span class="count text-danger">*</span>
-                                        <input type="text" class="zip form-control form-control-lg" id="mzipCode" placeholder="Zip"><span class="count text-danger">*</span>
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1" maxlength="6" class="zip form-control form-control-lg" id="mzipCode" placeholder="Zip"><span class="count text-danger">*</span>
                                     </div>
                                 </li>
                                 <li class="card-list-items">
                                     <!-- Sixth Line -->
                                     <div class="form-group-2">
-                                        <div class="city">
-                                            <select class="form-control form-control-lg" id="mCity">
-                                                <option>City</option>
+                                        <div class="country">
+                                            <select class="form-control form-control-lg" id="mCountry">
                                             </select><span class="count text-danger">*</span>
                                         </div>
                                         <div class="province">
                                             <select class="form-control form-control-lg" id="mProvinceState">
-                                                <option>Province/State</option>
                                             </select><span class="count text-danger">*</span>
                                         </div>
-                                        <div class="country">
-                                            <select class="form-control form-control-lg" id="mCountry">
-                                                <option>Country</option>
-                                            </select><span class="count text-danger">*</span>
+                                        <div class="city">
+                                            <input class="form-control form-control-lg" id="mCity" placeholder="City">
+                                            <span class="count text-danger">*</span>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="card-list-items">
+                                    <script>
+                                        // default
+                                        let user_country_code = "ZC";
+                                        
+                                        (function () {
+                                            // script https://www.html-code-generator.com/html/drop-down/country-region
+                                        
+                                            // Get the country name and state name from the imported script.
+                                            let country_list = country_and_states['country'];
+                                            let states_list = country_and_states['states'];
+                                        
+                                            // creating country name drop-down
+                                            let option =  '';
+                                            //do not remove, might cause regression bugs
+                                            //option += '<option>select country</option>';
+                                            for(let country_code in country_list){
+                                                // set selected option user country
+                                                let selected = (country_code == user_country_code) ? ' selected' : '';
+                                                option += '<option value="'+country_code+'"'+selected+'>'+country_list[country_code]+'</option>';
+                                            }
+                                            document.getElementById('mCountry').innerHTML = option;
+                                        
+                                            // creating states name drop-down
+                                            let text_box = '<input type="text" class="input-text" id="states">';
+                                            let state_code_id = document.getElementById("mProvinceState");
+                                        
+                                            function create_states_dropdown() {
+                                                // get selected country code
+                                                let country_code = document.getElementById("mCountry").value;
+                                                let states = states_list[country_code];
+                                                // invalid country code or no states add textbox
+                                                if(!states){
+                                                    state_code_id.innerHTML = text_box;
+                                                    return;
+                                                }
+                                                let option = '';
+                                                if (states.length > 0) {
+                                                    option = '<select id="states">\n';
+                                                    for (let i = 0; i < states.length; i++) {
+                                                        option += '<option value="'+states[i].code+'">'+states[i].name+'</option>';
+                                                    }
+                                                    option += '</select>';
+                                                } else {
+                                                    // create input textbox if no states 
+                                                    option = text_box
+                                                }
+                                                state_code_id.innerHTML = option;
+                                            }
+                                        
+                                            // country select change event
+                                            const country_select = document.getElementById("mCountry");
+                                            country_select.addEventListener('change', create_states_dropdown);
+                                        
+                                            create_states_dropdown();
+                                        })();
+                                        
+                                    </script> 
+
                                     <!-- Seventh Line -->
                                     <div class="form-group-1">
                                         <input type="text" class="form-control form-control-lg" id="moccupation" placeholder="Occupation"><span class="count text-danger">*</span>
@@ -190,8 +249,10 @@
                                 <li class="card-list-items">
                                     <!-- Eight Line -->
                                     <div class="form-group-6">
-                                        <input type="text" class="mobile form-control form-control-lg" id="mmobileNo" placeholder="Mobile Number"><span class="count text-danger">*</span>
-                                        <input type="text" class="telephone form-control form-control-lg" id="mtelephoneNo" placeholder="Telephone Number">
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1"  maxlength="12" class="mobile form-control form-control-lg" id="mmobileNo" placeholder="Mobile Number"><span class="count text-danger">*</span>
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1"  maxlength="12" class="telephone form-control form-control-lg" id="mtelephoneNo" placeholder="Telephone Number">
                                 </li>
                                 <div class="btn-grid">
                                     <div class="w3-center">

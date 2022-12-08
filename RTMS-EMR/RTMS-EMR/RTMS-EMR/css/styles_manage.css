@@ -81,18 +81,17 @@
     width: 100%;
     padding-right: 0.50rem;
     padding-left: 0.50rem;
-    gap: 10px;
     align-items: left;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
         "single married divorced separated widowed";
 }
 
-.single { grid-area: single;}
-.married { grid-area: married;}
-.divorced {grid-area: divorced;}
-.separated {grid-area: separated;}
-.widowed {grid-area: widowed;}
+.single { grid-area: single; width:71px; height: 20px;}
+.married { grid-area: married; width:81px; height: 20px;}
+.divorced {grid-area: divorced; width:90px; height: 20px;}
+.separated {grid-area: separated; width:100px; height: 20px;}
+.widowed {grid-area: widowed; width:95px; height: 20px;}
 
 .form-group-6 {
     color: rgba(255,255,255,255.8);
@@ -418,7 +417,5 @@ div.pform {
     }
 
 @media screen and (max-width: 992px) {
-    .card {
-        
-    }
+
 }
