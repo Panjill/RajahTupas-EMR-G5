@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, shrink-to-fit=yes">
+    <link rel="icon" href="graphics/rtms-logo.png" type="image">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Rajah Tupas EMR</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/styles_form.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <!-- JS List of Country and States -->
+    <script src="js/country-states.js"></script>
+
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <header class="header w3-animate-top">
+            <div id="menu-btn" class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <span id="search-img" class="material-icons-outlined text-to-darkbg">search</span>
+            <div id="main-searchbar" class="search-division">
+                <div class="header-left">
+                    <input id="searchbar" name="search" type="text" placeholder="Search">
+                </div>
+            </div>
+            <div id="main-headerspace" class="header-space">
+            </div>
+            <div>
+                <div class="datetime">
+                    <div class="time"></div>
+                    <div class="date"></div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <span class="sidebar-close material-icons-outlined w3-animate-zoom" onclick="closeSidebar()">close</span>
+            </div>
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img draggable="false" id="header-image" src="graphics/rtms-logo.png" />
+                    <p id="header-title">Rajah Tupas</p>
+                    <p id="header-subtitle">Medical Services</p>
+                </div>
+                
+            </div>
+            <p id="sidebar-separator">__________________________</p>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">dashboard</span><a class="sidebar-link" href="homepage.html">Homepage</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">person_add</span><a class="sidebar-link" href="register-patient.html">Patient Registration</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">list_alt</span><a class="sidebar-link" href="list-patient.html">Patient List</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">manage_accounts</span><a class="sidebar-link" href="manage-accounts.html">Manage Accounts</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">settings</span><a class="sidebar-link" href="homepage.html">Settings</a>
+                </li>
+                <li id="sidebar-separator-bottom">__________________________</li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">logout</span><a id="logout" class="sidebar-link" href="#">Logout</a>
+                </li>
+                <li>
+                    <span class="material-icons-outlined"></span><a></a>
+                </li>
+            </ul>
+        </aside>
+        <!-- End Sidebar -->
+        <!-- Main -->
+        <main id="main-container" class="main-container w3-animate-bottom">
+            <div id="patientForm" style="display: block" class="form-container w3-hover-shadow">
+                <div class="pform">
+                    <form>
+                        <div class="brand-logo">
+                            <!-- Title -->
+                            <div id="header-pform">
+                                <a class="header-pform-text">PATIENT REGISTRATION FORM</a>
+                                <div class="photo-display">
+                                    <label>
+                                        <input type="file" id="image-input" class="prof-pic" accept="image/jpeg, image/jpg, image/png" style="display:none">
+                                        <span id="pro-pic" class="material-icons-outlined text-to-whitebg">add_a_photo</span>
+                                    </label>
+                                    <div class="patientID">
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1" maxlength="6" id="patientID" class="form-control form-control-lg" placeholder="ID Number"></a><span style="font-size: 12px;" class="count text-danger">*</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- First Line -->
+                        <li class="card-list-items">
+                            <!-- First Line -->
+                            <div class="form-group-2">
+                                <input type="text" class="first form-control form-control-lg" id="firstName" placeholder="First Name"><span class="count text-danger">*</span>
+                                <input type="text" class="middle form-control form-control-lg" id="middleName" placeholder="Middle Name"><span class="count text-danger">*</span>
+                                <input type="text" class="last form-control form-control-lg" id="lastName" placeholder="Last Name"><span class="count text-danger">*</span>
+                        </li>
+                        <li class="card-list-items">
+                            <!-- Second Line -->
+                            <div class="form-group-3">
+                                <input type="date" min="1900-01-01" class="birth form-control form-control-lg" id="birthDate" placeholder="DD/MM/YYYY"><span class="count text-danger">*</span>
+                                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                type="number" min="1" max="150"  maxlength="3" class="age form-control form-control-lg" id="age" placeholder="Age"><span class="count text-danger">*</span>
+                                <select class="sex form-control form-control-lg" id="sex">
+                                    <option>Sex</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select><span class="count text-danger">*</span>
+                        </li>
+                        <li class="card-list-items">
+                            <!-- Third Line -->
+                            <div class="form-group-1">
+                                <input type="text" class="form-control form-control-lg" id="religion" placeholder="Religion">
+                                <span class="count text-danger">*</span>
+                            </div>            
+                        </li>
+                        <li class="card-list-items">
+                            <!-- Fourth Line -->
+                            <div class="form-group-5">
+                                <div class="single">
+                                    <input type="radio" id="single" name="maritalStatus" value="single">
+                                    <label for="single">Single</label><br>
+                                </div>
+                                <div class="married">
+                                    <input type="radio" id="married" name="maritalStatus" value="married">
+                                    <label for="married">Married</label><br>
+                                </div>
+                                <div class="divorced">
+                                    <input type="radio" id="divorced" name="maritalStatus" value="divorced">
+                                    <label for="html">Divorced</label><br>
+                                </div>
+                                <div class="separated">
+                                    <input type="radio" id="separated" name="maritalStatus" value="separated">
+                                    <label for="divorced">Separated</label><br>
+                                </div>
+                                <div class="widowed">
+                                    <input type="radio" id="widowed" name="maritalStatus" value="widowed">
+                                    <label for="widowed">Widowed</label><br>
+                                </div>
+                                <span class="count text-danger">*</span>
+                            </div>
+                        </li>
+                        <li class="card-list-items">
+                            <!-- Fifth Line -->
+                            <div class="form-group-4">
+                                <input type="text" class="street form-control form-control-lg" id="streetAddress" placeholder="Street Address"><span class="count text-danger">*</span>
+                                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                type="number" min="1" maxlength="6" class="zip form-control form-control-lg" id="zipCode" placeholder="Zip"><span class="count text-danger">*</span>
+                            </div>
+                        </li>
+
+                        <div class="form-group-2">
+                            <div class="country">
+                                <select class="form-control form-control-lg" id="country">
+                                </select><span class="count text-danger">*</span>
+                            </div>
+                            <div class="province">
+                                <select class="form-control form-control-lg" id="state-code">
+                                </select><span class="count text-danger">*</span>
+                            </div>
+                            <div class="city">
+                                <input type="text" class="form-control form-control-lg" id="city" placeholder="City">
+                                <span class="count text-danger">*</span>
+                            </div>
+                        </div>
+                        <script>
+                            // default
+                            let user_country_code = "ZC";
+                            
+                            (function () {
+                                // script https://www.html-code-generator.com/html/drop-down/country-region
+                            
+                                // Get the country name and state name from the imported script.
+                                let country_list = country_and_states['country'];
+                                let states_list = country_and_states['states'];
+                            
+                                // creating country name drop-down
+                                let option =  '';
+                                //do not remove, might cause regression bugs
+                                //option += '<option>select country</option>';
+                                for(let country_code in country_list){
+                                    // set selected option user country
+                                    let selected = (country_code == user_country_code) ? ' selected' : '';
+                                    option += '<option value="'+country_code+'"'+selected+'>'+country_list[country_code]+'</option>';
+                                }
+                                document.getElementById('country').innerHTML = option;
+                            
+                                // creating states name drop-down
+                                let text_box = '<input type="text" class="input-text" id="states">';
+                                let state_code_id = document.getElementById("state-code");
+                            
+                                function create_states_dropdown() {
+                                    // get selected country code
+                                    let country_code = document.getElementById("country").value;
+                                    let states = states_list[country_code];
+                                    // invalid country code or no states add textbox
+                                    if(!states){
+                                        state_code_id.innerHTML = text_box;
+                                        return;
+                                    }
+                                    let option = '';
+                                    if (states.length > 0) {
+                                        option = '<select id="states">\n';
+                                        for (let i = 0; i < states.length; i++) {
+                                            option += '<option value="'+states[i].code+'">'+states[i].name+'</option>';
+                                        }
+                                        option += '</select>';
+                                    } else {
+                                        // create input textbox if no states 
+                                        option = text_box
+                                    }
+                                    state_code_id.innerHTML = option;
+                                }
+                            
+                                // country select change event
+                                const country_select = document.getElementById("country");
+                                country_select.addEventListener('change', create_states_dropdown);
+                            
+                                create_states_dropdown();
+                            })();
+                            
+                        </script> 
+
+                        <!-- Seventh Line -->
+                        <div class="form-group-1">
+                            <input type="text" class="form-control form-control-lg" id="occupation" placeholder="Occupation">
+                            <span class="count text-danger">*</span>
+                        </div>
+                        <!-- Eight Line -->
+                        <div class="form-group-6">
+                            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            type="number" min="1"  maxlength="12" class="mobile form-control form-control-lg" id="mobileNo" placeholder="Mobile Number"><span class="count text-danger">*</span>
+                            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            type="number" min="1"  maxlength="10" class="telephone form-control form-control-lg" id="telephoneNo" placeholder="Telephone Number">
+                        </div>
+                        <!-- Ninth Line -->
+                        <div class="btn-grid">
+                            <div class="w3-center">
+                                <a id="backBtn" class="btn-block" href="homepage.html">BACK</a>
+                            </div>
+                            <div class="w3-center">  
+                                <a id="submitBtn" class="btn-block" href="#">SUBMIT</a>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- End Main -->
+    <!-- Scripts -->
+    <script src="js/scripts.js"></script>
+    <script type="module" src="js/script_login.js"></script>
+    <!-- Custom JS -->
+</body>
+</html>
