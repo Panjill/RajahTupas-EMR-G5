@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, shrink-to-fit=yes">
+    <link rel="icon" href="graphics/rtms-logo.png" type="image">
+    <title>Rajah Tupas EMR</title>
+
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/styles_manage.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- JS List of Country and States -->
+    <script src="js/country-states.js"></script>
+
+     <!--                  PDF                           -->
+     <script src="./js/html2pdf.bundle.min.js"></script>
+     <script>
+        function generatePDF() {
+        var form5 = document.getElementById("form-group-5");
+        
+        form5.classList.add("text-to-whitebg");
+        // Choose the element that our invoice is rendered in.
+        const element = document.getElementById("invoice");
+        
+        var opt = {
+                margin: .4,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {scale: 2},
+                filename: 'PatientIn.pdf',
+                jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'},
+                
+        }
+        
+        // Choose the element and save the PDF for our user.
+        html2pdf()
+            .set(opt)
+            .from(element)
+            .save();
+      
+        var delayInMilliseconds = 100;
+        setTimeout(function() {
+            var form5 = document.getElementById("form-group-5");
+            form5.classList.remove("text-to-whitebg");
+        }, delayInMilliseconds);
+       }
+      
+
+        
+     </script>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <header class="header w3-animate-top">
+            <div id="menu-btn" class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <span id="search-img" class="material-icons-outlined text-to-darkbg">search</span>
+            <div id="main-searchbar" class="search-division">
+                <div class="header-left">
+                    <input id="searchbar" name="search" type="text" placeholder="Search">
+                </div>
+            </div>
+            <div id="main-headerspace" class="header-space">
+            </div>
+            <div>
+                <div class="datetime">
+                    <div class="time"></div>
+                    <div class="date"></div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+            <!-- Sidebar -->
+            <aside id="sidebar">
+            <div class="sidebar-title">
+                <span class="sidebar-close material-icons-outlined w3-animate-zoom" onclick="closeSidebar()">close</span>
+            </div>
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img draggable="false" id="header-image" src="graphics/rtms-logo.png" />
+                    <p id="header-title">Rajah Tupas</p>
+                    <p id="header-subtitle">Medical Services</p>
+                </div>
+                
+            </div>
+            <p id="sidebar-separator">__________________________</p>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">dashboard</span><a class="sidebar-link" href="homepage.html">Homepage</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">person_add</span><a class="sidebar-link" href="register-patient.html">Patient Registration</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">list_alt</span><a class="sidebar-link" href="list-patient.html">Patient List</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">manage_accounts</span><a class="sidebar-link" href="manage-accounts.html">Manage Accounts</a>
+                </li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">settings</span><a class="sidebar-link" href="homepage.html">Settings</a>
+                </li>
+                <li id="sidebar-separator-bottom">__________________________</li>
+                <li class="sidebar-list-item w3-hover-shadow">
+                    <span class="material-icons-outlined">logout</span><a id="logout" class="sidebar-link" href="#">Logout</a>
+                </li>
+                <li>
+                    <span class="material-icons-outlined"></span><a></a>
+                </li>
+            </ul>
+        </aside>
+        <!-- End Sidebar -->
+        <!-- Main -->
+        <main id="main-container" class=" div-grid main-container w3-animate-right">
+            <div class="main-cards-manage">
+                <div class="card w3-hover-shadow">
+                    <!-- Title -->
+                    <div class="card-container">
+                        <div id="printButtonIcon" class="printButtonIcon" onclick="generatePDF()">
+                            <span class="material-icons-outlined">print</span>
+                        </div>
+                            <div id="backButtonIcon" class="backButtonIcon">
+                                <span class="material-icons-outlined">arrow_back_ios_new</span><a class="backButton">BACK</a>
+                            </div>
+                <div id="invoice">
+                    <div id="header-pform">
+                        <h3><strong>PATIENT INFORMATION</strong></h3>
+                    </div>
+                    <div class="card-inner">
+                            <ul class="card-container-list">
+                                <div style="color: black" class="picture-center text">
+                                    <img id="userPhotoManage" src="graphics/patient-icon.png" alt="Avatar" draggable="false" class="w3-left picture-size">
+                                </div>
+                                <div class="id-val">ID:
+                                    <a id="mpatientID" value="#"></a>
+                                </div>
+                                <li class="card-list-items">
+                                    <!-- First Line -->
+                                    <div class="form-group-2">
+                                        <input type="text" class="first form-control form-control-lg" id="mfirstName" placeholder="First Name"><span class="count text-danger">*</span>
+                                        <input type="text" class="middle form-control form-control-lg" id="mmiddleName" placeholder="Middle Name"><span class="count text-danger">*</span>
+                                        <input type="text" class="last form-control form-control-lg" id="mlastName" placeholder="Last Name"><span class="count text-danger">*</span>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Second Line -->
+                                    <div class="form-group-3">
+                                        <input type="date" min="1900-01-01" class="birth form-control form-control-lg" id="mbirthDate" placeholder="DD/MM/YYYY"><span class="count text-danger">*</span>
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1" max="150"  maxlength="3" class="form-control form-control-lg" id="mage" placeholder="Age"><span class="count text-danger">*</span>
+                                        <select class="sex form-control form-control-lg" id="msex">
+                                            <option>Sex</option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select><span class="count text-danger">*</span>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Third Line -->
+                                    <div class="form-group-1">
+                                        <input type="text" class="form-control form-control-lg" id="mreligion" placeholder="Religion">
+                                    </div>            
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Fourth Line -->
+                                    <div id="form-group-5" class="form-group-5">
+                                        <div class="single">
+                                            <input type="radio" id="msingle" name="maritalStatus" value="single">
+                                            <label for="single">Single</label><br>
+                                        </div>
+                                        <div class="married">
+                                            <input type="radio" id="mmarried" name="maritalStatus" value="married">
+                                            <label for="married">Married</label><br>
+                                        </div>
+                                        <div class="divorced">
+                                            <input type="radio" id="mdivorced" name="maritalStatus" value="divorced">
+                                            <label for="html">Divorced</label><br>
+                                        </div>
+                                        <div class="separated">
+                                            <input type="radio" id="mseparated" name="maritalStatus" value="separated">
+                                            <label for="divorced">Separated</label><br>
+                                        </div>
+                                        <div class="widowed">
+                                            <input type="radio" id="mwidowed" name="maritalStatus" value="widowed">
+                                            <label for="widowed">Widowed</label><br>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Fifth Line -->
+                                    <div class="form-group-4">
+                                        <input type="text" class="street form-control form-control-lg" id="mstreetAddress" placeholder="Street Address"><span class="count text-danger">*</span>
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1" maxlength="6" class="zip form-control form-control-lg" id="mzipCode" placeholder="Zip"><span class="count text-danger">*</span>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Sixth Line -->
+                                    <div class="form-group-2">
+                                        <div class="country">
+                                            <select class="form-control form-control-lg" id="mCountry">
+                                            </select><span class="count text-danger">*</span>
+                                        </div>
+                                        <div class="province">
+                                            <select class="form-control form-control-lg" id="mProvinceState">
+                                            </select><span class="count text-danger">*</span>
+                                        </div>
+                                        <div class="city">
+                                            <input class="form-control form-control-lg" id="mCity" placeholder="City">
+                                            <span class="count text-danger">*</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <script>
+                                        // default
+                                        let user_country_code = "ZC";
+                                        
+                                        (function () {
+                                            // script https://www.html-code-generator.com/html/drop-down/country-region
+                                        
+                                            // Get the country name and state name from the imported script.
+                                            let country_list = country_and_states['country'];
+                                            let states_list = country_and_states['states'];
+                                        
+                                            // creating country name drop-down
+                                            let option =  '';
+                                            //do not remove, might cause regression bugs
+                                            //option += '<option>select country</option>';
+                                            for(let country_code in country_list){
+                                                // set selected option user country
+                                                let selected = (country_code == user_country_code) ? ' selected' : '';
+                                                option += '<option value="'+country_code+'"'+selected+'>'+country_list[country_code]+'</option>';
+                                            }
+                                            document.getElementById('mCountry').innerHTML = option;
+                                        
+                                            // creating states name drop-down
+                                            let text_box = '<input type="text" class="input-text" id="states">';
+                                            let state_code_id = document.getElementById("mProvinceState");
+                                        
+                                            function create_states_dropdown() {
+                                                // get selected country code
+                                                let country_code = document.getElementById("mCountry").value;
+                                                let states = states_list[country_code];
+                                                // invalid country code or no states add textbox
+                                                if(!states){
+                                                    state_code_id.innerHTML = text_box;
+                                                    return;
+                                                }
+                                                let option = '';
+                                                if (states.length > 0) {
+                                                    option = '<select id="states">\n';
+                                                    for (let i = 0; i < states.length; i++) {
+                                                        option += '<option value="'+states[i].code+'">'+states[i].name+'</option>';
+                                                    }
+                                                    option += '</select>';
+                                                } else {
+                                                    // create input textbox if no states 
+                                                    option = text_box
+                                                }
+                                                state_code_id.innerHTML = option;
+                                            }
+                                        
+                                            // country select change event
+                                            const country_select = document.getElementById("mCountry");
+                                            country_select.addEventListener('change', create_states_dropdown);
+                                        
+                                            create_states_dropdown();
+                                        })();
+                                        
+                                    </script> 
+
+                                    <!-- Seventh Line -->
+                                    <div class="form-group-1">
+                                        <input type="text" class="form-control form-control-lg" id="moccupation" placeholder="Occupation"><span class="count text-danger">*</span>
+                                    </div>
+                                </li>
+                                <li class="card-list-items">
+                                    <!-- Eight Line -->
+                                    <div class="form-group-6">
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1"  maxlength="12" class="mobile form-control form-control-lg" id="mmobileNo" placeholder="Mobile Number"><span class="count text-danger">*</span>
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        type="number" min="1"  maxlength="12" class="telephone form-control form-control-lg" id="mtelephoneNo" placeholder="Telephone Number">
+                                </li>
+                                <div class="btn-grid">
+                                    <div class="w3-center">
+                                        <a id="deleteBtn" class="btn-block" href="#">DELETE</a>
+                                    </div>
+                                    <div class="w3-center">
+                                        <a id="updateBtn" class="btn-block" href="#">UPDATE</a>
+                                    </div>
+                                </div>
+                                <div class="medical-history w3-center">
+                                    <a id="historybtn" class="btn-block" href="medical-history.html">MEDICAL HISTORY</a>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- End Main -->
+    <!-- Scripts -->
+    <script src="./js/scripts.js"></script>
+    <script type="module" src="./js/script_login.js"></script>
+    <!-- Custom JS -->
+</body>
+</html>
